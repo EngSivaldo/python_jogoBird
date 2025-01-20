@@ -35,7 +35,7 @@ class Passaro:
         self.imagem = self.IMGS[0]
 
     def pular(self):
-        self.velocidade = - 10
+        self.velocidade = -10.5
         self.tempo = 0
         self.altura = self.y
 
@@ -140,15 +140,15 @@ class Chao:
         self.x2 -= self.VELOCIDADE
 
         if self.x1 + self.LARGURA < 0:
-            self.x1 = self.x1 + self.LARGURA
+            self.x1 = self.x2 + self.LARGURA
         if self.x2 + self.LARGURA < 0:
-            self.x2 = self.x2 + self.LARGURA
+            self.x2 = self.x1 + self.LARGURA
 
     def desenhar(self, tela):
         tela.blit(self.IMAGEM, (self.x1, self.y))
         tela.blit(self.IMAGEM, (self.x2, self.y))
 
-def desenhar_tela(tela, passaros, canos, chao,           pontos):
+def desenhar_tela(tela, passaros, canos, chao, pontos):
     tela.blit(IMAGEM_BACKGROUND, (0, 0))
     for passaro in passaros:
         passaro.desenhar(tela)
@@ -160,7 +160,7 @@ def desenhar_tela(tela, passaros, canos, chao,           pontos):
     pygame.display.update()
 
 def reiniciar_jogo():
-    time.sleep(3)  # Esperar 3 segundos antes de reiniciar
+    time.sleep(5)  # Esperar 5 segundos antes de reiniciar
     main()
 
 def main():
